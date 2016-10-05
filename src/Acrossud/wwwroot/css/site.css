@@ -1,0 +1,118 @@
+﻿@import "https://fonts.googleapis.com/css?family=Open+Sans:300";
+
+body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* buttons and links extension to use brackets: [ click me ] */
+.btn-bracketed::before {
+    display:inline-block;
+    content: "[";
+    padding-right: 0.5em;
+}
+.btn-bracketed::after {
+    display:inline-block;
+    content: "]";
+    padding-left: 0.5em;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"]
+{
+    width: 100%;
+}
+
+.navbar{
+    min-height:100px;
+}
+
+.navbar-brand{
+    background: url('../images/main-logo.svg');
+    background-size:cover;
+    width:300px;
+    height:80px;
+    margin-top:10px;
+}
+
+.navbar-nav{
+    margin-left:10px;
+    margin-top:30px;
+}
+
+.navbar-fixed-top{
+    background-color:white;
+    border-bottom:3px solid #7E278C;
+}
+
+.nav > li > a{
+    color:#7E278C;
+    font-size:16px;
+}
+
+.navbar-toggle .icon-bar{
+    background-color:#7E278C;
+}
+
+.navbar-toggle{
+    margin-top:15px;
+}
+
+.container .jumbotron{
+    background: url('../images/jumbo-back.jpeg') center;
+    background-size:cover;
+    border-radius:0;
+    color:white;
+}
+
+.jumbotron p{
+    font-weight:lighter;
+    font-size:28px;
+    width:100%;
+    max-width: 550px;
+    text-shadow: 0 0 10px black;
+    padding:20px;
+    border-radius:20px;
+    transform: translate(0,0);
+    display:block;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none
+  }
+
+  .navbar-brand{
+    width: 164px;
+    height: 50px;
+    margin-left:10px;
+    margin-top:10px;
+  }
+
+  .navbar{
+    min-height:70px;
+  }
+}
