@@ -20,9 +20,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Nuestra empresa", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Propiedades", "About", "About")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Contact")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Administrar propiedades", "Index", "Entities")</li>
+                    }
+                    <li>@Html.ActionLink("Nuestra empresa", "About", "Home")</li>
+                    <li>@Html.ActionLink("Propiedades", "Entities", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>

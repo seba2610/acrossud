@@ -1,6 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System.Configuration;
+using System.Data.Entity;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Acrossud;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -21,7 +24,7 @@ namespace Acrossud.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base(DataAccess.GetConnStringDecripted(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString), throwIfV1Schema: false)
         {
         }
 

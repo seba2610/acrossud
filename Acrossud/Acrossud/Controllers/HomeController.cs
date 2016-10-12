@@ -6,10 +6,12 @@ using System.Web.Mvc;
 
 namespace Acrossud.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            IEnumerable<Entity> entities = EntityMger.Instance.GetEntities();
             return View();
         }
 

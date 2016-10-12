@@ -1,0 +1,18 @@
+﻿@model Acrossud.Models.EntityCollectionModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Agregar nueva", "AddNew", "Entities", new { area = "" }, new { @class = "btn btn-success" })
+
+@{ 
+    foreach(Entity entity in Model.Entities)
+    {
+        <h1>@entity.Name</h1>
+    }
+}
+
+
+

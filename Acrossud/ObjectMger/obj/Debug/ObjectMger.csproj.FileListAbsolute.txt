@@ -1,0 +1,10 @@
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\ObjectMger.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\ObjectMger.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\DataAccess.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\Object.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\DataAccess.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Debug\Object.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Debug\ObjectMger.csprojResolveAssemblyReference.cache
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Debug\ObjectMger.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Debug\ObjectMger.pdb
