@@ -42,6 +42,23 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/dropzone")
     @RenderSection("scripts", required: false)
+    <script>
+        Dropzone.options.maindropzone = {
+            init: function () {
+                this.on("complete", function (data) {
+                    //var res = eval('(' + data.xhr.responseText + ')');
+                    var res = JSON.parse(data.xhr.responseText);
+                });
+            },
+            addRemoveLinks: true,
+            dictRemoveFile: "Eliminar",
+            dictCancelUpload: "Cancelar",
+            uploadMultiple:true,
+            parallelUploads: 1,
+            paramName: "file"
+        };
+    </script>
 </body>
 </html>

@@ -14,6 +14,11 @@ namespace Acrossud
         public string Description { get; set; }
         public Dictionary<string, object> Properties { get; set; }
 
+        public Entity()
+        {
+
+        }
+
         public Entity(DataRow row)
         {
                 Id = Int32.Parse(row["Id"].ToString());

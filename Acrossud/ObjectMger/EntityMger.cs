@@ -67,7 +67,7 @@ namespace Acrossud
             return result;
         }
 
-        public IEnumerable<Property> GetProperties()
+        public List<Property> GetProperties()
         {
             List<Property> result = new List<Property>();
 
@@ -84,6 +84,27 @@ namespace Acrossud
                 {
                     result.Add(new Property(dr));
                 }
+            }
+
+            return result;
+        }
+
+        public int SaveEntity(Entity entity)
+        {
+            int result = -1;
+
+            Dictionary<string, object> parameters = null;
+            DataSet ds = null;
+
+            parameters = new Dictionary<string, object>();
+            parameters.Add("@Name", entity.Name);
+            parameters.Add("@Description", entity.Description);
+
+            ds = _dataAccess.ExecuteStoreProcedure("SaveEntity", parameters);
+
+            if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                result = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
 
             return result;

@@ -23,8 +23,12 @@ namespace Acrossud
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/dropzone").Include(
+                      "~/Scripts/dropzone.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/dropzone.css",
                       "~/Content/site.css"));
         }
     }

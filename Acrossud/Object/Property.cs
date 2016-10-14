@@ -16,12 +16,36 @@ namespace Acrossud
         public object Value { get; set; }
         public PropertyType Type { get; set; }
 
+        public Property()
+        {
+
+        }
+
         public Property(DataRow row)
         {
             Id = Int32.Parse(row["Id"].ToString());
             Name = row["Name"].ToString();
             Description = row["Description"] == DBNull.Value ? String.Empty: row["Description"].ToString();
             Type = Convert(row["Type"].ToString());
+
+            switch (Type)
+            {
+                case PropertyType.Int:
+                    Value = 0;
+                    break;
+                case PropertyType.String:
+                    Value = String.Empty;
+                    break;
+                case PropertyType.Bool:
+                    Value = false;
+                    break;
+                case PropertyType.RentSaleEnum:
+                    Value = RentSaleEnum.Alquiler;
+                    break;
+                case PropertyType.CurrencyEnum:
+                    Value = CurrencyEnum.Pesos;
+                    break;
+            }
         }
 
         public static PropertyType Convert(string type)

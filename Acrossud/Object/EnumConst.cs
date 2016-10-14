@@ -11,5 +11,9 @@ namespace Acrossud
         public enum DataAccessProvider { SqlServer }
 
         public enum PropertyType { Int, String, Bool, RentSaleEnum, CurrencyEnum, Unkown }
+
+        public enum RentSaleEnum { Alquiler, Venta}
+
+        public enum CurrencyEnum { Dólares, Pesos }
     }
 }

@@ -15,11 +15,9 @@ namespace Acrossud.Models
 
     public class NewEntityModel
     {
-        private List<int> _roomValues;
-
         public NewEntityModel()
         {
-            _roomValues = new List<int>(Enumerable.Range(0, 10));
+
         }
 
         public int Id { get; set; }
@@ -31,13 +29,6 @@ namespace Acrossud.Models
         public string Description { get; set; }
 
         [DisplayName("Características")]
-        public IEnumerable<Property> Properties { get; set; }
-
-        public IEnumerable<SelectListItem> RoomValues
-        {
-            get { return new SelectList(_roomValues); }
-        }
-
-        public int RoomCountSelected { get; set; }
+        public List<Property> Properties { get; set; }
     }
 }

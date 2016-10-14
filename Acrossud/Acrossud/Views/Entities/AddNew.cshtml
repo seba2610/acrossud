@@ -6,54 +6,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-<h2>@ViewBag.Title.</h2>
-
-@using (Html.BeginForm("AddNew", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+<div class="row">
+    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+        <h3>@ViewBag.Title</h3>
+        <hr />
+        <div class="row">
+            @using (Html.BeginForm("AddNew", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    </div>
+                </div>
+                for (var i = 0; i < Model.Properties.Count(); i++)
+                {
+                    <div class="form-group">
+                        <label class="control-label col-md-4" for="Name">@Model.Properties[i].Name</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(m => Model.Properties[i].Id)
+                            @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control"} })
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-right">
+                        <input type="submit" class="btn btn-success" value="Guardar" />
+                    </div>
+                </div>
+            }
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Description, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
-        </div>
     </div>
-    foreach (Property property in Model.Properties)
-    {
-        @Html.LabelFor(prop => property.Name, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-        @switch (property.Type)
-        {
-            case EnumConst.PropertyType.Bool:
-                @Html.EditorFor(prop => property.Value, new { @class = "form-control" });
-                break;
-            case EnumConst.PropertyType.Int:
-                @Html.DropDownListFor(m => m.RoomCountSelected, Model.RoomValues);
-                break;
-            default:
-                @Html.EditorFor(m => property.Value, new { @class = "form-control" })
-                break;
-        }
-        </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
     }
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-success" value="Guardar" />
-        </div>
-    </div>
-}
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
 
 
 

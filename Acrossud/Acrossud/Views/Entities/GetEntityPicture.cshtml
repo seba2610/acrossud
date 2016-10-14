@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "AddEntityPicture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+        <h2>@ViewBag.EntityName</h2>
+        <h3>Agregar imágenes</h3>
+        @using (Html.BeginForm("AddEntityPicture", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.Hidden("entity_id", (int)ViewBag.EntityId)
+            <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>
+        }
+    </div>
+</div>
+
+

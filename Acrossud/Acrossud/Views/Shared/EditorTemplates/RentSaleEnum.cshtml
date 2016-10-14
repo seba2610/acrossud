@@ -1,0 +1,11 @@
+﻿@model EnumConst.RentSaleEnum
+@using System.Web.Mvc
+@{
+    var names = Enum.GetNames(typeof(EnumConst.RentSaleEnum));
+    var values = Enum.GetValues(typeof(EnumConst.RentSaleEnum)).Cast<EnumConst.RentSaleEnum>();
+
+    var items = names.Zip(values, (name, value) =>
+        new SelectListItem { Text = name, Value = value.ToString() });
+}
+
+@Html.DropDownList("", items, new { @class = "form-control" } )

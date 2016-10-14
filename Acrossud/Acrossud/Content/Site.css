@@ -20,6 +20,17 @@ textarea {
     max-width: 280px;
 }
 
+input[type=number]{
+    max-width:70px;
+}
+
+input[type=checkbox]{
+    border:none;
+    height:20px;
+    width:20px;
+    padding:5px;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
