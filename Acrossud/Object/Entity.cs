@@ -12,7 +12,7 @@ namespace Acrossud
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Dictionary<string, object> Properties { get; set; }
+        public List<Property> Properties { get; set; }
 
         public Entity()
         {

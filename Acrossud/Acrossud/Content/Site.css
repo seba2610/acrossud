@@ -13,6 +13,10 @@ body {
     padding-right: 0;
 }
 
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom{
+    margin:0;
+}
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
 select,
@@ -20,8 +24,12 @@ textarea {
     max-width: 280px;
 }
 
+textarea{
+    min-height: 130px;
+}
+
 input[type=number]{
-    max-width:70px;
+    max-width:100px;
 }
 
 input[type=checkbox]{
@@ -119,6 +127,61 @@ input[type=checkbox]{
 
 footer p{
     margin:10px;
+}
+
+#add-new-entity{
+    padding: 20px 0 0 0;
+}
+
+.entity-main-picture {
+    width: 100%;
+    position:relative;
+}
+
+.edit-entity-wrapper{
+    border: 1px solid #ccc;
+    border-radius:10px;
+    padding: 0;
+    margin:5px;
+    height:220px;
+    overflow:hidden;
+    background-size: cover;
+    background-position: center center;
+}
+
+.edit-entity-wrapper .titles {
+    background-color: rgba(0,0,0,0.8);
+}
+
+.edit-entity-wrapper h3{
+    color:white;
+    margin-top:0;
+    margin:0 20px 0 0;
+    padding: 10px 10px 0 10px;
+    word-wrap: break-word;
+}
+
+.edit-entity-wrapper h5{
+    color:white;
+    margin-top:0;
+    margin:0 0 10px 0;
+    padding: 10px;
+
+}
+
+.edit-entity-wrapper h3, h5{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.modal{
+    overflow-y:auto;
+}
+
+.modal-open{
+    overflow:auto;
 }
 
 /* Hide/rearrange for smaller screens */

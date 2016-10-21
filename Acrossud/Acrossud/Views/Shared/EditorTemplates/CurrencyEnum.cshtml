@@ -1,4 +1,4 @@
-﻿@model EnumConst.CurrencyEnum
+﻿@model Acrossud.Models.CurrencyEnumModels
 @using System.Web.Mvc
 @{
     var names = Enum.GetNames(typeof(EnumConst.CurrencyEnum));
@@ -8,4 +8,4 @@
         new SelectListItem { Text = name, Value = value.ToString() });
 }
 
-@Html.DropDownList("", items, new { @class = "form-control" })
+@Html.DropDownListFor(x=> x.Selected, Model.Items)

@@ -1,0 +1,44 @@
+﻿@model Acrossud.Models.NewEntityModel
+@using Acrossud.Models;
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+        <h3>Editar @Model.Name</h3>
+        <hr />
+        <div class="row">
+            <h3>Imágenes</h3>
+            <div class="row">
+                @using (Html.BeginForm("AddEntityPicture", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.Hidden("entity_id", @Model)
+                    <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>
+                }
+            </div>
+        </div>
+        <div class="row">
+            @using (Html.BeginForm("Edit", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.Partial("EntityFields")
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-2">
+                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-left">
+                                @Html.ActionLink("Eliminar", "Delete", "Entities", new { @entity_id = Model.Id }, new { @class = "btn btn-danger", @id = "remove-entity" })
+                            </div>
+                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 text-right">
+                                @Html.ActionLink("Cancelar", "Index", "Entities", null, new { @class = "btn btn-link" })
+                                <input type="submit" class="btn btn-success" value="Guardar cambios" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

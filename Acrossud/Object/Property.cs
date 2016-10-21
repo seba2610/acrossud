@@ -28,22 +28,49 @@ namespace Acrossud
             Description = row["Description"] == DBNull.Value ? String.Empty: row["Description"].ToString();
             Type = Convert(row["Type"].ToString());
 
+            bool contains_value = false;
+
+            try
+            {
+                if (row["Value"] != null)
+                    contains_value = true;
+            }
+            catch
+            {
+                contains_value = false;
+            }
+
             switch (Type)
             {
                 case PropertyType.Int:
-                    Value = 0;
+                    if (contains_value)
+                        Value = Int32.Parse(row["Value"].ToString());
+                    else
+                        Value = 0;
                     break;
                 case PropertyType.String:
-                    Value = String.Empty;
+                    if (contains_value)
+                        Value  =row["Value"].ToString();
+                    else
+                        Value = String.Empty;
                     break;
                 case PropertyType.Bool:
-                    Value = false;
+                    if (contains_value)
+                        Value = Boolean.Parse(row["Value"].ToString());
+                    else
+                        Value = false;
                     break;
                 case PropertyType.RentSaleEnum:
-                    Value = RentSaleEnum.Alquiler;
+                    if (contains_value)
+                        Value = (RentSaleEnum)Enum.Parse(typeof(RentSaleEnum), row["Value"].ToString());
+                    else
+                        Value = RentSaleEnum.Alquiler;
                     break;
                 case PropertyType.CurrencyEnum:
-                    Value = CurrencyEnum.Pesos;
+                    if (contains_value)
+                        Value = (CurrencyEnum)Enum.Parse(typeof(CurrencyEnum), row["Value"].ToString());
+                    else
+                        Value = CurrencyEnum.Pesos;
                     break;
             }
         }

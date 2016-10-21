@@ -15,5 +15,9 @@ namespace Acrossud
         public enum RentSaleEnum { Alquiler, Venta}
 
         public enum CurrencyEnum { Dólares, Pesos }
+
+        public const string EntityImagesPath = @"{0}images\\{1}";
+
+        public const string PropertyNameMainPicture = "Imagen principal";
     }
 }

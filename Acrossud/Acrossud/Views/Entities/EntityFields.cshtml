@@ -1,0 +1,76 @@
+﻿@model Acrossud.Models.NewEntityModel
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(m => Model.Id)
+@Html.ValidationSummary("", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Description, new { @class = "col-md-4 control-label" })
+    <div class="col-md-8">
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+    </div>
+</div>
+@{
+    for (var i = 0; i < Model.Properties.Count(); i++)
+    {
+        if (Model.Properties[i].Name != EnumConst.PropertyNameMainPicture)
+        {
+            <div class="form-group">
+                <label class="control-label col-md-4" for="Name">@Model.Properties[i].Name</label>
+                <div class="col-md-8">
+                    @Html.HiddenFor(m => Model.Properties[i].Id)
+                    @{
+                        if (Model.Properties[i].Value is EnumConst.CurrencyEnum)
+                        {
+                            <select class="form-control" id="@Html.Raw("Properties_" + i + "__Value")" name="@Html.Raw("Properties[" + i + "].Value")">
+                                @{
+                                    var names = Enum.GetNames(typeof(EnumConst.CurrencyEnum));
+                                    foreach (string name in names)
+                                    {
+                                        if (name == Model.Properties[i].Value.ToString())
+                                        {
+                                            <option value="@name" selected>@name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@name">@name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        }
+                        else if (Model.Properties[i].Value is EnumConst.RentSaleEnum)
+                        {
+                            <select class="form-control" id="@Html.Raw("Properties_" + i + "__Value")" name="@Html.Raw("Properties[" + i + "].Value")">
+                                @{
+                                    var names = Enum.GetNames(typeof(EnumConst.RentSaleEnum));
+                                    foreach (string name in names)
+                                    {
+                                        if (name == Model.Properties[i].Value.ToString())
+                                        {
+                                            <option value="@name" selected>@name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@name">@name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } });
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+
+}

@@ -1,0 +1,32 @@
+﻿@model Acrossud.Models.NewEntityModel
+@using Acrossud.Models;
+
+@{
+    ViewBag.Title = "Agregar nueva propiedad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+        <h3>@ViewBag.Title</h3>
+        <hr />
+        <div class="row">
+            @using (Html.BeginForm("CreateNew", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.Partial("EntityFields")
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 text-right">
+                        <input type="submit" class="btn btn-success" value="Agregar imágenes" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+

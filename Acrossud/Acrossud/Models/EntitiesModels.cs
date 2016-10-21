@@ -31,4 +31,11 @@ namespace Acrossud.Models
         [DisplayName("Características")]
         public List<Property> Properties { get; set; }
     }
+
+    public class EntityPictureFileInfo
+    {
+        public string FileName { get; set; }
+        public string Path { get; set; }
+        public long FileSize { get; set; }
+    }
 }
