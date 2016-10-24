@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2 entities-col-wrapper">
         @{
             foreach (Entity entity in Model.Entities)
             {
@@ -25,12 +25,16 @@
                 }
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                     <div class="row edit-entity-wrapper" style="background-image:url('@Html.Raw(main_picture_src)')">
-                        <div class="titles">
-                            <h3>@entity.Name</h3>
-                            <h5>@entity.Description</h5>
+                        <div class="titles-background">
+                            <div class="row text-right">
+                                @Html.ActionLink("Editar", "Edit", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-link" })
+                            </div>
+                            <div class="titles">
+                                <h3>@entity.Name</h3>
+                                <h5>@entity.Description</h5>
+                            </div>
                         </div>
                     </div>
-                    @Html.ActionLink("Editar", "Edit", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-link" })
                 </div>
             }
         }

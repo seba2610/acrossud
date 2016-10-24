@@ -145,3 +145,5 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.Owin.Sec
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\DataAccess.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.Migrations.initial.resources
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.csproj.GenerateResource.Cache
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.pdb

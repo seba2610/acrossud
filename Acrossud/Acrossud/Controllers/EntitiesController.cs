@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,13 @@ namespace Acrossud.Controllers
     [Authorize]
     public class EntitiesController : Controller
     {
+        private string GetBaseUrl()
+        {
+            string result = string.Format("{0}/", Request.Url.GetLeftPart(UriPartial.Authority));
+
+            return result;
+        }
+
         // GET: Entities
         public ActionResult Index()
         {
@@ -95,6 +103,15 @@ namespace Acrossud.Controllers
 
         public ActionResult Delete(int entity_id)
         {
+            string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
+
+            string[] files_to_delete = Directory.GetFiles(path);
+
+            foreach (string file in files_to_delete)
+            {
+                System.IO.File.Delete(file);
+            }
+
             int result = EntityMger.Instance.DeleteEntity(entity_id);
 
             return RedirectToAction("Index", new { alert_title = "Propiedad eliminada", alert = "Se ha eliminado la propiedad con éxito." });
@@ -121,14 +138,19 @@ namespace Acrossud.Controllers
                     {
                         file_name = file.FileName;
 
-                        string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath(@"\"), entity_id.ToString())).ToString();
+                        string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
 
-                        string absolute_file_name = string.Format("{0}\\{1}", path, file_name);
+                        string thumbnail_path = string.Format(EnumConst.EntityThumbnailImagesPath, path, entity_id.ToString());
+
+                        string absolute_file_name = string.Format(EnumConst.AbsoluteFileName, path, file_name);
 
                         if (!Directory.Exists(path))
                             Directory.CreateDirectory(path);
 
-                        if (Directory.GetFiles(path).Count() == 0)
+                        if (!Directory.Exists(thumbnail_path))
+                            Directory.CreateDirectory(thumbnail_path);
+
+                        if (Directory.GetFiles(path).Where(f => f != EnumConst.ThumbnailDir).Count() == 0)
                         {
                             Property p = EntityMger.Instance.GetPropertyByName(EnumConst.PropertyNameMainPicture);
                             EntityProperty ep = new EntityProperty();
@@ -136,6 +158,26 @@ namespace Acrossud.Controllers
                             ep.PropertyId = p.Id;
                             ep.Value = file_name;
                             ep.Id = EntityMger.Instance.AddOrUpdateEntityProperty(ep);
+                        }
+
+                        Bitmap bitmap = Utilities.IsImage(file);
+
+                        if (bitmap != null)
+                        {
+                            int thumb_height = EnumConst.ThumbnailDefaultSize;
+                            int thumb_width = EnumConst.ThumbnailDefaultSize;
+
+                            if (bitmap.Height > bitmap.Width)
+                            {
+                                thumb_width = (int) (bitmap.Width * ((float)thumb_height / (float)bitmap.Height));
+                            }
+                            else
+                            {
+                                thumb_height = (int) (bitmap.Height * ((float)thumb_width / (float)bitmap.Width));
+                            }
+
+                            Image thumbnail = bitmap.GetThumbnailImage(thumb_width, thumb_height, null, IntPtr.Zero);
+                            thumbnail.Save(string.Format(EnumConst.AbsoluteFileName, thumbnail_path, file_name));
                         }
 
                         file.SaveAs(absolute_file_name);
@@ -161,7 +203,7 @@ namespace Acrossud.Controllers
         {
             List<EntityPictureFileInfo> result = new List<EntityPictureFileInfo>();
 
-            string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath(@"\"), entity_id.ToString())).ToString();
+            string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
 
             var folder = new DirectoryInfo(path);
 
@@ -170,12 +212,36 @@ namespace Acrossud.Controllers
             for(int i = 0; i < files.Length; i++)
             {
                 FileInfo file = files[i];
-                result.Add(new EntityPictureFileInfo() { FileName = file.Name, Path = path, FileSize = file.Length });
+                string url_file = string.Format(EnumConst.EntityImagesPath, GetBaseUrl(), entity_id);
+                url_file = string.Format(EnumConst.EntityThumbnailImagesPath, url_file);
+                url_file = string.Format(EnumConst.AbsoluteFileName, url_file, file.Name);
+                result.Add(new EntityPictureFileInfo() { FileName = file.Name, Path = url_file, FileSize = file.Length });
             }
 
             var jSonSerialize = new JavaScriptSerializer();
 
-            return Json(result);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        public void DeleteEntityPictureFile(int entity_id, string file_name)
+        {
+            string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
+
+            string thumbnail_path = string.Format(EnumConst.EntityThumbnailImagesPath, path, entity_id.ToString());
+
+            string absolute_file_name = string.Format(EnumConst.AbsoluteFileName, path, file_name);
+
+            string absolute_file_name_thumbnail = string.Format(EnumConst.AbsoluteFileName, thumbnail_path, file_name);
+
+            if (System.IO.File.Exists(absolute_file_name)){
+                System.IO.File.Delete(absolute_file_name);
+            }
+
+            if (System.IO.File.Exists(absolute_file_name_thumbnail))
+            {
+                System.IO.File.Delete(absolute_file_name_thumbnail);
+            }
+        }
+        
     }
 }

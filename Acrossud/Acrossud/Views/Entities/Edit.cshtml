@@ -10,17 +10,7 @@
     <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
         <h3>Editar @Model.Name</h3>
         <hr />
-        <div class="row">
-            <h3>Imágenes</h3>
-            <div class="row">
-                @using (Html.BeginForm("AddEntityPicture", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
-                {
-                    @Html.Hidden("entity_id", @Model)
-                    <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>
-                }
-            </div>
-        </div>
-        <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             @using (Html.BeginForm("Edit", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.Partial("EntityFields")
@@ -38,6 +28,17 @@
                     </div>
                 </div>
             }
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="row">
+                <div id="entity_picture_url" style="display:none;">@Url.Action("GetEntityPicturesFiles", "Entities", new { @entity_id = Model.Id })</div>
+                <div id="delete_picture_url" style="display:none;">@Url.Action("DeleteEntityPictureFile", "Entities", new { @entity_id = Model.Id })</div>
+                @using (Html.BeginForm("AddEntityPicture", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.Hidden("entity_id", @Model)
+                    <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>
+                }
+            </div>
         </div>
     </div>
 </div>

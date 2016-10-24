@@ -280,6 +280,10 @@
       <Project>{64d35c7d-2ed5-4083-8041-c459f825c027}</Project>
       <Name>Object</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{4cb51024-3488-4349-9c67-e615f8a96d53}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610111926282_initial.resx">

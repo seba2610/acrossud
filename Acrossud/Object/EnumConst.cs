@@ -16,8 +16,22 @@ namespace Acrossud
 
         public enum CurrencyEnum { Dólares, Pesos }
 
-        public const string EntityImagesPath = @"{0}images\\{1}";
+        public enum PropertyValue { True, False }
+
+        public enum PropertyOperator { Equal, Greater, GreaterEqual, Less, LessEqual, Contains }
+
+        public const string EntityImagesPath = @"{0}/images/{1}";
+
+        public const string EntityThumbnailImagesPath = @"{0}/thumbnail/";
+
+        public const string AbsoluteFileName = "{0}/{1}";
+
+        public const string ThumbnailDir = "thumbnail";
+
+        public const int ThumbnailDefaultSize = 120;
 
         public const string PropertyNameMainPicture = "Imagen principal";
+
+        public const string PropertyNameFeatured = "Destacado";
     }
 }

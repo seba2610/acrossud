@@ -66,6 +66,31 @@ namespace Acrossud
             return result;
         }
 
+        public IEnumerable<Entity> GetEntitiesFiltered(string property_name, EnumConst.PropertyOperator op, EnumConst.PropertyValue value)
+        {
+            List<Entity> result = new List<Entity>();
+
+            Dictionary<string, object> parameters = null;
+            DataSet ds = null;
+
+            parameters = new Dictionary<string, object>();
+            parameters.Add("@PropertyName", property_name);
+            parameters.Add("@PropertyOperator", op.ToString());
+            parameters.Add("@Value", value.ToString());
+
+            ds = _dataAccess.ExecuteStoreProcedure("GetEntitiesFiltered", parameters);
+
+            if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    result.Add(new Entity(dr));
+                }
+            }
+
+            return result;
+        }
+
         public Entity GetEntity(int id)
         {
             Entity result = null;
@@ -256,7 +281,7 @@ namespace Acrossud
 
             if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                result = Convert.ToInt32(ds.Tables[0].Rows[0]);
+                result = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
             }
 
             return result;

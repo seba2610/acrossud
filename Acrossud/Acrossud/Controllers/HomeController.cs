@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Acrossud.Models;
 
 namespace Acrossud.Controllers
 {
@@ -11,8 +12,15 @@ namespace Acrossud.Controllers
     {
         public ActionResult Index()
         {
-            IEnumerable<Entity> entities = EntityMger.Instance.GetEntities();
-            return View();
+            EntityCollectionModel model = new EntityCollectionModel();
+            model.Entities = EntityMger.Instance.GetEntitiesFiltered(EnumConst.PropertyNameFeatured, EnumConst.PropertyOperator.Equal, EnumConst.PropertyValue.True);
+
+            foreach (Entity entity in model.Entities)
+            {
+                entity.Properties = EntityMger.Instance.GetValueOfPropertiesByEntityId(entity.Id);
+            }
+
+            return View(model);
         }
 
         public ActionResult About()
