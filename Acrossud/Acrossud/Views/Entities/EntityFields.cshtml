@@ -63,6 +63,10 @@
                                 }
                             </select>
                         }
+                        else if (Model.Properties[i].Value is int)
+                        {
+                            @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "0", step = "1" } });
+                        }
                         else
                         {
                             @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } });

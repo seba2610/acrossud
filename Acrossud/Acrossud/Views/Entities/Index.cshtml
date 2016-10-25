@@ -27,7 +27,7 @@
                     <div class="row edit-entity-wrapper" style="background-image:url('@Html.Raw(main_picture_src)')">
                         <div class="titles-background">
                             <div class="row text-right">
-                                @Html.ActionLink("Editar", "Edit", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-link" })
+                                @Html.ActionLink("Editar", "Edit", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-primary btn-sm btn-edit" })
                             </div>
                             <div class="titles">
                                 <h3>@entity.Name</h3>

@@ -35,7 +35,6 @@
     file.previewElement.appendChild(removeButton);
 }
 $(document).ready(function () {
-
     //Control maindropzone
     if ($("#maindropzone") !== undefined) {
         //Control de contenedor de imágenes

@@ -32,6 +32,12 @@ namespace Acrossud
 
         public const string PropertyNameMainPicture = "Imagen principal";
 
+        public const string PropertyNameRentSale = "Venta o alquiler";
+
+        public const string PropertyNamePrice = "Precio";
+
+        public const string PropertyNameCurrency = "Tipo de moneda";
+
         public const string PropertyNameFeatured = "Destacado";
     }
 }

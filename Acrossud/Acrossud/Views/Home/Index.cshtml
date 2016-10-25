@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Acrossud.Views.Helpers;
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -22,7 +23,10 @@
                 <div class="row index-entity-wrapper" style="background-image:url('@Html.Raw(main_picture_src)')">
                     <div class="titles-background">
                         <div class="titles">
-                            <h3>@entity.Name</h3>
+                            <h2>@entity.Name</h2>
+                            <h3>
+                                <strong>@Helpers.GetEntityPrice(entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePrice), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrency), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameRentSale))</strong>
+                            </h3>
                             <h5>@entity.Description</h5>
                         </div>
                     </div>
