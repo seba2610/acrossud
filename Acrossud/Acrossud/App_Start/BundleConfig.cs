@@ -29,12 +29,23 @@ namespace Acrossud
             bundles.Add(new ScriptBundle("~/bundles/bootbox").Include(
                         "~/Scripts/bootbox.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/photoswipe").Include(
+                        "~/Scripts/photoswipe-ui-default.min.js",
+                        "~/Scripts/photoswipe.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/slick").Include(
+                        "~/Scripts/slick.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
                         "~/Scripts/main.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/dropzone.css",
+                      "~/Content/default-skin/default-skin.css",
+                      "~/Content/photoswipe.css",
+                      "~/Content/slick-theme.css",
+                      "~/Content/slick.css",
                       "~/Content/site.css"));
         }
     }

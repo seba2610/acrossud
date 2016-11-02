@@ -98,10 +98,6 @@ input[type=checkbox]{
     margin-top:15px;
 }
 
-.row{
-    margin:0;
-}
-
 .container-fluid .jumbotron{
     background: url('../images/jumbo-back.jpeg') center;
     background-size:cover;
@@ -137,16 +133,17 @@ footer p{
 .entities-col-wrapper .col-md-4, .entities-col-wrapper .col-lg-4,
 .index-entities-wrapper .col-md-4, .index-entities-wrapper .col-lg-4{
     padding:0;
+    border:1px solid white;
 }
 
-.entity-main-picture {
+.entity-main-document {
     width: 100%;
     position:relative;
 }
 
 .index-entity-wrapper{
     padding: 0;
-    margin:1px;
+    margin:0;
     height:280px;
     overflow:hidden;
     background-size: cover;
@@ -155,9 +152,8 @@ footer p{
 
 .edit-entity-wrapper{
     border: 1px solid #ccc;
-    border-radius:10px;
     padding: 0;
-    margin:5px;
+    margin:0;
     height:220px;
     overflow:hidden;
     background-size: cover;
@@ -234,6 +230,62 @@ footer p{
 
 .btn-file-rem{
     width:100%;
+    text-align:center;
+}
+
+.entity-gallery-wrapper {
+    margin:10px;
+    padding:5px 30px;
+    border:1px solid #ccc;
+    background-color: #ddd;
+}
+
+.entity-gallery a{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-touch-callout: none;
+    display: block;
+    float: left;
+    margin: 5px;
+    height: 120px;
+    vertical-align:middle;
+    line-height: 0;
+    text-align:center;
+}
+
+.main-row {
+    margin:0;
+    padding:0;
+}
+
+.navbar-footer{
+    margin:0;
+}
+
+
+.main-title-wrapper{
+    border-bottom: 2px solid #7E278C;
+    margin:5px 0 2px 0;
+}
+
+.main-title{
+    margin:5px 0 0 0;
+    background: #7E278C;
+    color:white;
+    padding:10px 20px;
+    font-weight:100;
+    display:inline-block;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+#more-properties-cell {
+    top:50%;
+    position:relative;
+    font-size:22px;
     text-align:center;
 }
 

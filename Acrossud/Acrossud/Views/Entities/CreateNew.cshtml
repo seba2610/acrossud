@@ -1,4 +1,4 @@
-﻿@model Acrossud.Models.NewEntityModel
+﻿@model Acrossud.Models.EntityModel
 @using Acrossud.Models;
 
 @{
@@ -6,27 +6,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
-        <h3>@ViewBag.Title</h3>
-        <hr />
-        <div class="row">
-            @using (Html.BeginForm("CreateNew", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.Partial("EntityFields")
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10 text-right">
-                        <input type="submit" class="btn btn-success" value="Agregar imágenes" />
-                    </div>
+<div class="col-xs-12 col-sm-12 col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+    <h3>@ViewBag.Title</h3>
+    <hr />
+    <div>
+        @using (Html.BeginForm("CreateNew", "Entities", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.Partial("EntityFieldsEdition")
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 text-right">
+                    <input type="submit" class="btn btn-success" value="Siguiente" />
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
-    </div>
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
-
+</div>
 
 
 

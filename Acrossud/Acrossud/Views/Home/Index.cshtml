@@ -1,6 +1,6 @@
 ﻿@using Acrossud.Views.Helpers;
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Acrossud";
 }
 
 <div class="jumbotron">
@@ -10,28 +10,12 @@
     Tenemos la experiencia, seriedad y responsabilidad en la mejor atención.</p>
 </div>
 
-<div class="row index-entities-wrapper">
-    @{
-        foreach (Entity entity in Model.Entities)
-        {
-            string main_picture_src = String.Empty;
-            if (entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture) != null)
-            {
-                main_picture_src = @Url.Content(string.Format(EnumConst.EntityImagesPath + "/{2}", "", entity.Id, entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture).Value));
-            }
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="row index-entity-wrapper" style="background-image:url('@Html.Raw(main_picture_src)')">
-                    <div class="titles-background">
-                        <div class="titles">
-                            <h2>@entity.Name</h2>
-                            <h3>
-                                <strong>@Helpers.GetEntityPrice(entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePrice), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrency), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameRentSale))</strong>
-                            </h3>
-                            <h5>@entity.Description</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-    }
+<div class="main-title-wrapper">
+    <h2 class="main-title">Destacadas</h2>
+</div>
+<div class="index-entities-wrapper">
+    @Html.Partial("EntitiesCollection");
+    <a class="col-xs-12 col-sm-6 col-md-4 col-lg-4 vcenter index-entity-wrapper" href="@Url.Action("GetAllActiveEntities")">
+        <div id="more-properties-cell">Ver más</div>
+    </a>
 </div>

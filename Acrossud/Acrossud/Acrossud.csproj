@@ -193,7 +193,14 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\default-skin\default-skin.css" />
+    <Content Include="Content\default-skin\default-skin.png" />
+    <Content Include="Content\default-skin\default-skin.svg" />
+    <Content Include="Content\default-skin\preloader.gif" />
     <Content Include="Content\dropzone.css" />
+    <Content Include="Content\photoswipe.css" />
+    <Content Include="Content\slick-theme.css" />
+    <Content Include="Content\slick.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -212,8 +219,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\photoswipe-ui-default.min.js" />
+    <Content Include="Scripts\photoswipe.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slick.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -253,9 +263,12 @@
     <Content Include="Views\Entities\CreateNew.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\RentSaleEnum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\CurrencyEnum.cshtml" />
-    <Content Include="Views\Entities\Edit.cshtml" />
-    <Content Include="Views\Entities\EntityFields.cshtml" />
-    <Content Include="Views\Entities\GetEntityPicture.cshtml" />
+    <Content Include="Views\Entities\EditEntity.cshtml" />
+    <Content Include="Views\Entities\EntityFieldsEdition.cshtml" />
+    <Content Include="Views\Entities\GetEntityDocument.cshtml" />
+    <Content Include="Views\Home\ShowEntity.cshtml" />
+    <Content Include="Views\Shared\EntitiesCollection.cshtml" />
+    <Content Include="Views\Home\GetAllActiveEntities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

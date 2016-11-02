@@ -14,7 +14,7 @@ namespace Acrossud.Controllers
     [Authorize]
     public class EntitiesController : Controller
     {
-        private string GetBaseUrl()
+        public string GetBaseUrl()
         {
             string result = string.Format("{0}/", Request.Url.GetLeftPart(UriPartial.Authority));
 
@@ -35,41 +35,56 @@ namespace Acrossud.Controllers
             return View(model);
         }
 
+        #region Creation
         public ActionResult CreateNew()
         {
-            NewEntityModel model = new NewEntityModel();
+            EntityModel model = new EntityModel();
             model.Properties = EntityMger.Instance.GetProperties();
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult CreateNew(NewEntityModel model)
+        public ActionResult CreateNew(EntityModel model)
         {
             Entity entity = new Entity();
             entity.Name = model.Name;
-            entity.Description = model.Description;
+            entity.Description = model.Description == null ? String.Empty : model.Description;
             entity.Id = EntityMger.Instance.CreateEntity(entity);
 
-            foreach(Property property in model.Properties)
+            if (entity.Id > 0)
             {
-                EntityProperty ep = new EntityProperty();
-                ep.EntityId = entity.Id;
-                ep.PropertyId = property.Id;
-                ep.Value = property.Value;
-                ep.Id = EntityMger.Instance.AddOrUpdateEntityProperty(ep);
-            }
+                foreach (Property property in model.Properties)
+                {
+                    EntityProperty ep = new EntityProperty();
+                    ep.EntityId = entity.Id;
+                    ep.PropertyId = property.Id;
+                    ep.Value = property.Value;
+                    ep.Id = EntityMger.Instance.AddOrUpdateEntityProperty(ep);
+                }
 
-            if (entity.Id > -1)
-                return RedirectToAction("GetEntityPicture", new { entity_id = entity.Id, entity_name = entity.Name });
+                string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity.Id.ToString())).ToString();
+
+                string thumbnail_path = string.Format(EnumConst.EntityThumbnailImagesPath, path, entity.Id.ToString());
+
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+
+                if (!Directory.Exists(thumbnail_path))
+                    Directory.CreateDirectory(thumbnail_path);
+
+                return RedirectToAction("GetEntityDocument", new {entity_name = entity.Name, entity_id = entity.Id });
+            }
             else
                 return RedirectToAction("Index");
         }
+        #endregion
 
-        public ActionResult Edit(int entity_id)
+        #region Edition
+        public ActionResult EditEntity(int entity_id)
         {
             Entity entity = EntityMger.Instance.GetEntity(entity_id);
 
-            NewEntityModel model = new NewEntityModel()
+            EntityModel model = new EntityModel()
             {
                 Id = entity.Id,
                 Name = entity.Name,
@@ -81,11 +96,11 @@ namespace Acrossud.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(NewEntityModel model)
+        public ActionResult EditEntity(EntityModel model)
         {
             Entity entity = new Entity();
             entity.Name = model.Name;
-            entity.Description = model.Description;
+            entity.Description = model.Description == null ? String.Empty : model.Description;
             entity.Id = model.Id;
             int result = EntityMger.Instance.UpdateEntity(entity);
 
@@ -116,15 +131,17 @@ namespace Acrossud.Controllers
 
             return RedirectToAction("Index", new { alert_title = "Propiedad eliminada", alert = "Se ha eliminado la propiedad con éxito." });
         }
+        #endregion
 
-        public ActionResult GetEntityPicture(string entity_name, int entity_id)
+        #region Documents
+        public ActionResult GetEntityDocument(string entity_name, int entity_id)
         {
             ViewBag.EntityName = entity_name;
             ViewBag.EntityId = entity_id;
             return View();
         }
 
-        public ActionResult AddEntityPicture(int entity_id)
+        public ActionResult AddEntityDocument(int entity_id)
         {
             bool isSavedSuccessfully = true;
             string file_name = String.Empty;
@@ -199,23 +216,26 @@ namespace Acrossud.Controllers
             }
         }
 
-        public JsonResult GetEntityPicturesFiles(int entity_id)
+        public JsonResult GetEntityDocumentsFiles(int entity_id)
         {
-            List<EntityPictureFileInfo> result = new List<EntityPictureFileInfo>();
+            List<EntityDocumentFileInfo> result = new List<EntityDocumentFileInfo>();
 
             string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
 
-            var folder = new DirectoryInfo(path);
-
-            FileInfo[] files = folder.GetFiles();
-
-            for(int i = 0; i < files.Length; i++)
+            if (Directory.Exists(path))
             {
-                FileInfo file = files[i];
-                string url_file = string.Format(EnumConst.EntityImagesPath, GetBaseUrl(), entity_id);
-                url_file = string.Format(EnumConst.EntityThumbnailImagesPath, url_file);
-                url_file = string.Format(EnumConst.AbsoluteFileName, url_file, file.Name);
-                result.Add(new EntityPictureFileInfo() { FileName = file.Name, Path = url_file, FileSize = file.Length });
+                var folder = new DirectoryInfo(path);
+
+                FileInfo[] files = folder.GetFiles();
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    FileInfo file = files[i];
+                    string url_file = string.Format(EnumConst.EntityImagesPath, GetBaseUrl(), entity_id);
+                    url_file = string.Format(EnumConst.EntityThumbnailImagesPath, url_file);
+                    url_file = string.Format(EnumConst.AbsoluteFileName, url_file, file.Name);
+                    result.Add(new EntityDocumentFileInfo() { FileName = file.Name, Path = url_file, FileSize = file.Length });
+                }
             }
 
             var jSonSerialize = new JavaScriptSerializer();
@@ -223,7 +243,7 @@ namespace Acrossud.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public void DeleteEntityPictureFile(int entity_id, string file_name)
+        public void DeleteEntityDocumentFile(int entity_id, string file_name)
         {
             string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
 
@@ -241,7 +261,13 @@ namespace Acrossud.Controllers
             {
                 System.IO.File.Delete(absolute_file_name_thumbnail);
             }
+
+            if (Directory.GetFiles(path).Where(f => f != EnumConst.ThumbnailDir).Count() == 0)
+            {
+                int result = EntityMger.Instance.DeleteEntityPropertyByName(entity_id, EnumConst.PropertyNameMainPicture);
+            }
         }
-        
+        #endregion
+
     }
 }

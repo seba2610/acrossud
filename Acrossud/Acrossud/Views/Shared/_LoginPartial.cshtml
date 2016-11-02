@@ -5,7 +5,11 @@
     {
     @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right navbar-footer">
+        @if (Request.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("Administrar propiedades", "Index", "Entities")</li>
+        }
         <li>
             @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
@@ -15,7 +19,7 @@
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right navbar-footer">
         <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "login-link" })</li>
     </ul>
 }

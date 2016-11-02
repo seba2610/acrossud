@@ -22,6 +22,8 @@ namespace Acrossud
 
         public const string EntityImagesPath = @"{0}/images/{1}";
 
+        public const string NoImageFile = @"{0}/images/no_image.png";
+
         public const string EntityThumbnailImagesPath = @"{0}/thumbnail/";
 
         public const string AbsoluteFileName = "{0}/{1}";
@@ -29,6 +31,10 @@ namespace Acrossud
         public const string ThumbnailDir = "thumbnail";
 
         public const int ThumbnailDefaultSize = 120;
+
+        public const int ImageDefaultWidth = 120;
+
+        public const int ImageDefaultHeight = 120;
 
         public const string PropertyNameMainPicture = "Imagen principal";
 
@@ -39,5 +45,11 @@ namespace Acrossud
         public const string PropertyNameCurrency = "Tipo de moneda";
 
         public const string PropertyNameFeatured = "Destacado";
+
+        public const string PropertyNameActive = "Activo";
+
+        public const string PropertyValueTrue = "Sí";
+
+        public const string PropertyValueFalse = "No";
     }
 }

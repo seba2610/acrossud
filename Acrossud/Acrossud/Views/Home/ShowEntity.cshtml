@@ -1,0 +1,64 @@
+﻿@model Acrossud.Models.EntityModel
+@using Acrossud.Views.Helpers;
+@using Acrossud.Models;
+@{
+    ViewBag.Title = "ShowEntity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-10 col-lg-8 col-md-offset-1 col-lg-offset-2">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>@Model.Name</h2>
+        </div>
+    </div>
+    @{
+        if (Model.Documents.Count > 0)
+        {
+            <div class="row">
+                <div class="entity-gallery-wrapper">
+                    <div class="entity-gallery">
+                        @{
+                            foreach (EntityDocumentFileInfo image in Model.Documents)
+                            {
+                                <a href="@image.FileName" data-size="@string.Format("{0}x{1}",image.Width,image.Height)">
+                                    <img src="@image.ThumbnailFilename" alt="">
+                                </a>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <p><strong>Descripción</strong></p>
+            <p>@Model.Description</p>
+        </div>
+    </div>
+    <div class="row">
+        @{
+            var count = Model.Properties.Count();
+            for (var i = 0; i < count; i++)
+            {
+                if (i == 0 || i == (count / 2) + 1)
+                {
+                    @:<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                }
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label class="control-label " for="Name">@Model.Properties[i].Name</label>
+                    </div>
+                    <div class="col-md-8">
+                        @Helpers.GetPropertyValue(Model.Properties[i])
+                    </div>
+                </div>
+
+                if ((i == count / 2) || i == count - 1)
+                {
+                    @:</div>
+                }
+            }
+        }
+    </div>
+</div>

@@ -286,5 +286,26 @@ namespace Acrossud
 
             return result;
         }
+
+        public int DeleteEntityPropertyByName(int entity_id, string property_name)
+        {
+            int result = -1;
+
+            Dictionary<string, object> parameters = null;
+            DataSet ds = null;
+
+            parameters = new Dictionary<string, object>();
+            parameters.Add("@EntityId", entity_id);
+            parameters.Add("@PropertyName", property_name);
+
+            ds = _dataAccess.ExecuteStoreProcedure("DeleteEntityPropertyByName", parameters);
+
+            if (ds != null && ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                result = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+            }
+
+            return result;
+        }
     }
 }

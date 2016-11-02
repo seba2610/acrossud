@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,16 +14,17 @@ namespace Acrossud.Models
         public IEnumerable<Entity> Entities { get; set; }
     }
 
-    public class NewEntityModel
+    public class EntityModel
     {
-        public NewEntityModel()
+        public EntityModel()
         {
 
         }
 
         public int Id { get; set; }
 
-        [DisplayName("Nombre")]
+        [DisplayName("Nombre*")]
+        [Required]
         public string Name { get; set; }
 
         [DisplayName("Descripción")]
@@ -30,12 +32,18 @@ namespace Acrossud.Models
 
         [DisplayName("Características")]
         public List<Property> Properties { get; set; }
+
+        [DisplayName("Documentos")]
+        public List<EntityDocumentFileInfo> Documents { get; set; }
     }
 
-    public class EntityPictureFileInfo
+    public class EntityDocumentFileInfo
     {
         public string FileName { get; set; }
         public string Path { get; set; }
+        public string ThumbnailFilename { get; set; }
         public long FileSize { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }
