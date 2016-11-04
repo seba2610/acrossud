@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Acrossud.Views.Helpers;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,9 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Ver propiedades", "GetAllActiveEntities", "Home")</li>
-                    <li>@Html.ActionLink("Nuestra empresa", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.MenuLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.MenuLink("Ver propiedades", "GetAllActiveEntities", "Home")</li>
+                    <li>@Html.MenuLink("Nuestra empresa", "About", "Home")</li>
+                    <li>@Html.MenuLink("Contacto", "Contact", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -36,6 +38,7 @@
 
     <footer class="row col-xs-12 col-sm-12 col-md-12 col-lg-12 main-row">
         <hr />
+        <span>©Acrossud - 2016 - Montevideo, Uruguay.</span>
         @Html.Partial("_LoginPartial")
     </footer>
 

@@ -381,9 +381,9 @@ $(document).ready(function () {
         $('.entity-gallery').slick({
             dots: false,
             infinite: false,
-            speed: 300,
             centerMode: false,
-            variableWidth: true
+            variableWidth: true,
+            accessibility:true
         });
     }
 

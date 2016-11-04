@@ -19,9 +19,12 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
-select,
-textarea {
+select{
     max-width: 280px;
+}
+
+text-area{
+    max-width:350px;
 }
 
 textarea{
@@ -67,6 +70,15 @@ input[type=checkbox]{
     min-height:100px;
 }
 
+a.active{
+    background-color: #7E278C;
+    color:white !important;
+}
+
+a.active:hover{
+    background-color: #7E278C !important;
+}
+
 .navbar-brand{
     background: url('../images/main-logo.svg');
     background-size:cover;
@@ -76,7 +88,6 @@ input[type=checkbox]{
 }
 
 .navbar-nav{
-    margin-left:10px;
     margin-top:30px;
 }
 
@@ -179,6 +190,10 @@ footer p{
     width:100%;
 }
 
+.label{
+    margin:10px;
+}
+
 .edit-entity-wrapper h2, .edit-entity-wrapper h3, .index-entity-wrapper h2, .index-entity-wrapper h3{
     margin:0;
     padding: 10px 10px 0 10px;
@@ -210,6 +225,7 @@ footer p{
 
 .index-entity-wrapper:hover{
     background-size:110%;
+    background-color: #eee;
 }
 
 .btn-edit{
@@ -224,8 +240,18 @@ footer p{
     overflow:auto;
 }
 
-.dropzone .dz-preview .dz-image img {
+.dropzone .dz-preview .dz-image img{
     margin:auto;
+}
+
+.dropzone .dz-preview .dz-image {
+    margin:auto;
+    border-radius:5px;
+    height:auto;
+}
+
+.dropzone .dz-preview .dz-details{
+    padding: 1em 0;
 }
 
 .btn-file-rem{
@@ -246,7 +272,6 @@ footer p{
     display: block;
     float: left;
     margin: 5px;
-    height: 120px;
     vertical-align:middle;
     line-height: 0;
     text-align:center;
@@ -287,6 +312,51 @@ footer p{
     position:relative;
     font-size:22px;
     text-align:center;
+}
+
+a .index-entity-wrapper {
+    background-color: #ccc;
+}
+
+.link-address{
+    display:block;
+    margin:10px;
+    padding:5px;
+}
+
+#email-input, #name-input, #msg-textarea {
+    height: 40px;
+    display: block;
+    border: 1px solid #ddd;
+    background-color: #eee;
+    font-size: 16px;
+    padding: 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    resize: none;
+    max-width:480px;
+    width: 80%;
+}
+
+#btn-input {
+    margin-top: 20px;
+}
+
+.row-fill{
+    background-color: #eee;
+}
+
+.no-entities{
+    text-align:center;
+    color:#666;
+    margin:30px 0;
+}
+
+@media only screen and (min-width: 768px){
+    #email-input, #name-input, #msg-textarea {
+        
 }
 
 /* Hide/rearrange for smaller screens */

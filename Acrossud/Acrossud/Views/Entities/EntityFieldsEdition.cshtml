@@ -18,9 +18,7 @@
 @{
     for (var i = 0; i < Model.Properties.Count(); i++)
     {
-        if (Model.Properties[i].Name != EnumConst.PropertyNameMainPicture)
-        {
-            <div class="form-group">
+        <div class="form-group">
                 <label class="control-label col-md-4" for="Name">@Model.Properties[i].Name</label>
                 <div class="col-md-8">
                     @Html.HiddenFor(m => Model.Properties[i].Id)
@@ -67,6 +65,10 @@
                         {
                             @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control", @type = "number", @min = "0", step = "1" } });
                         }
+                        else if (Model.Properties[i].Value is string)
+                        {
+                            @Html.TextBoxFor(m => Model.Properties[i].Value, new { @class = "form-control" });
+                        }
                         else
                         {
                             @Html.EditorFor(m => Model.Properties[i].Value, new { htmlAttributes = new { @class = "form-control" } });
@@ -74,7 +76,6 @@
                     }
                 </div>
             </div>
-        }
     }
 
 }

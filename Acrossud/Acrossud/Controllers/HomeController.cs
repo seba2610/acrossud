@@ -127,9 +127,7 @@ namespace Acrossud.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return Redirect("~/#contacto");
         }
     }
 }

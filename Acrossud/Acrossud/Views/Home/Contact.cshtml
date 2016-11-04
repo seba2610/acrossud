@@ -1,17 +1,44 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿<div class="main-title-wrapper">
+    <h2 id="contacto" class="main-title">Contacto</h2>
+</div>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="row-fill">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <form id="contact-me-form" action="http://formspree.io/abriano@acrossud.com.uy" method="POST">
+                    <h4 id="name-label">Nombre</h4>
+                    <input id="name-input" type="text" name="_name_reply">
+                    <h4 id="email-label">E-mail</h4>
+                    <input id="email-input" type="email" name="_reply_to">
+                    <h4 id="msg-label">Mensaje</h4>
+                    <textarea id="msg-textarea" name="_body"></textarea>
+                    <input type="hidden" name="_next" value="http://www.m6.com.uy?success-msg=true#contact-me">
+                    <input class="btn btn-default" id="btn-input" type="submit" value="Enviar" name="_submit">
+                </form>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div id="social-network-wrapper">
+                    <div class="col-lg-12">
+                        <a class="link-address" href="https://www.facebook.com/brianoalicia">
+                            <img width="40" height="40" src="@Url.Content("~/images/facebook_icon.png")" />
+                            <span>/brianoalicia</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="link-address">
+                            <img width="40" height="40" src="@Url.Content("~/images/whatsapp_icon.png")" />
+                            <span>098 732 756</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <a class="link-address" href="mailto:abriano@acrossud.com">
+                            <img width="40" height="30" src="@Url.Content("~/images/email_icon.png")" />
+                            <span>abriano@acrossud.com</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

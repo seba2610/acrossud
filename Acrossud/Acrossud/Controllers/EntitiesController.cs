@@ -39,7 +39,7 @@ namespace Acrossud.Controllers
         public ActionResult CreateNew()
         {
             EntityModel model = new EntityModel();
-            model.Properties = EntityMger.Instance.GetProperties();
+            model.Properties = EntityMger.Instance.GetProperties().Where(p => p.Name != EnumConst.PropertyNameMainPicture).ToList();
             return View(model);
         }
 
@@ -120,11 +120,9 @@ namespace Acrossud.Controllers
         {
             string path = new DirectoryInfo(string.Format(EnumConst.EntityImagesPath, Server.MapPath("/"), entity_id.ToString())).ToString();
 
-            string[] files_to_delete = Directory.GetFiles(path);
-
-            foreach (string file in files_to_delete)
+            if (Directory.Exists(path))
             {
-                System.IO.File.Delete(file);
+                Directory.Delete(path, true);
             }
 
             int result = EntityMger.Instance.DeleteEntity(entity_id);

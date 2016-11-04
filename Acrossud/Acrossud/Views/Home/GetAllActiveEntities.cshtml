@@ -4,6 +4,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Request.IsAuthenticated)
+{
+    <div class="text-right" style="margin:10px;">
+        @Html.ActionLink("Cambiar a vista edición", "Index", "Entities", null, new { @class = "btn btn-info text-right" })
+    </div>
+}
 <div class="index-entities-wrapper">
     @Html.Partial("EntitiesCollection")
 </div>

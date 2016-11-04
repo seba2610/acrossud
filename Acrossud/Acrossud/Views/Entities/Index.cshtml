@@ -6,29 +6,51 @@
 }
 <div class="entities-col-wrapper">
     <div class="text-right" style="margin:10px;">
-        @Html.ActionLink("Agregar nueva", "CreateNew", "Entities", null, new { @class = "btn btn-success" })
+        @Html.ActionLink("Cambiar a vista usuario", "GetAllActiveEntities", "Home", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Agregar propiedad", "CreateNew", "Entities", null, new { @class = "btn btn-success" })
     </div>
     @{
-        foreach (Entity entity in Model.Entities)
+        if (Model.Entities.Count() == 0)
         {
-            string main_document_src = String.Empty;
-            if (entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture) != null)
+            <h2 class="no-entities">No se encuentran propiedades</h2>
+        }
+        else
+        {
+            foreach (Entity entity in Model.Entities)
             {
-                main_document_src = @Url.Content(string.Format(EnumConst.EntityImagesPath + "/{2}", "", entity.Id, entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture).Value));
-            }
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="row edit-entity-wrapper" style="background-image:url('@Html.Raw(main_document_src)')">
-                    <div class="titles-background">
-                        <div class="text-right">
-                            @Html.ActionLink("Editar", "EditEntity", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-primary btn-sm btn-edit" })
-                        </div>
-                        <div class="titles">
-                            <h3>@entity.Name</h3>
-                            <h5>@entity.Description</h5>
+                string main_document_src = String.Empty;
+                if (entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture) != null)
+                {
+                    main_document_src = @Url.Content(string.Format(EnumConst.EntityImagesPath + "/{2}", "", entity.Id, entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture).Value));
+                }
+                else
+                {
+                    main_document_src = @Url.Content(string.Format(EnumConst.NoImageFile, String.Empty));
+                }
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="row edit-entity-wrapper" style="background-image:url('@Html.Raw(main_document_src)')">
+                        <div class="titles-background">
+                            <div class="text-right">
+                                @Html.ActionLink("Editar", "EditEntity", "Entities", new { entity_id = @entity.Id }, new { @class = "btn btn-primary btn-sm btn-edit" })
+                            </div>
+                            <div class="titles">
+                                <div class="text-left">
+                                    @if (entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameFeatured) != null && (bool)entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameFeatured).Value)
+                                    {
+                                        <span class="label label-success">Destacada</span>
+                                    }
+                                    else if (!(entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameActive) != null && (bool)entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameActive).Value))
+                                    {
+                                        <span class="label label-default">Inactiva</span>
+                                    }
+                                </div>
+                                <h3>@entity.Name</h3>
+                                <h5>@entity.Description</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         }
     }
 </div>

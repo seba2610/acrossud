@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Mvc.Html;
 
 namespace Acrossud.Views.Helpers
 {
-    public class Helpers
+    public static class Helpers
     {
         public static string GetEntityPrice(Property price, Property currency)
         {
@@ -56,5 +58,30 @@ namespace Acrossud.Views.Helpers
 
             return result;
         }
+
+        public static MvcHtmlString MenuLink(
+            this HtmlHelper htmlHelper,
+            string linkText,
+            string actionName,
+            string controllerName)
+        {
+            string currentAction = htmlHelper.ViewContext.RouteData.GetRequiredString("action");
+            string currentController = htmlHelper.ViewContext.RouteData.GetRequiredString("controller");
+            if (actionName == currentAction && controllerName == currentController)
+            {
+                return htmlHelper.ActionLink(
+                    linkText,
+                    actionName,
+                    controllerName,
+                    null,
+                    new
+                    {
+                        @class = "active"
+                    });
+            }
+            return htmlHelper.ActionLink(linkText, actionName, controllerName);
+        }
     }
+
+
 }

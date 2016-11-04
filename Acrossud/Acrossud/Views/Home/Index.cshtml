@@ -14,8 +14,10 @@
     <h2 class="main-title">Destacadas</h2>
 </div>
 <div class="index-entities-wrapper">
-    @Html.Partial("EntitiesCollection");
+    @Html.Partial("EntitiesCollection")
     <a class="col-xs-12 col-sm-6 col-md-4 col-lg-4 vcenter index-entity-wrapper" href="@Url.Action("GetAllActiveEntities")">
         <div id="more-properties-cell">Ver más</div>
     </a>
 </div>
+
+@Html.Partial("Contact")

@@ -44,9 +44,9 @@ namespace Acrossud
 
         public const string PropertyNameCurrency = "Tipo de moneda";
 
-        public const string PropertyNameFeatured = "Destacado";
+        public const string PropertyNameFeatured = "Destacada";
 
-        public const string PropertyNameActive = "Activo";
+        public const string PropertyNameActive = "Activa";
 
         public const string PropertyValueTrue = "Sí";
 

@@ -15,6 +15,7 @@ namespace Acrossud
         public string Description { get; set; }
         public object Value { get; set; }
         public PropertyType Type { get; set; }
+        public int Order { get; set; }
 
         public Property()
         {
@@ -27,6 +28,7 @@ namespace Acrossud
             Name = row["Name"].ToString();
             Description = row["Description"] == DBNull.Value ? String.Empty: row["Description"].ToString();
             Type = Convert(row["Type"].ToString());
+            Order = Int32.Parse(row["Order"].ToString());
 
             bool contains_value = false;
 
