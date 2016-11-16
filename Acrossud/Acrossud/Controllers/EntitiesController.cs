@@ -193,6 +193,8 @@ namespace Acrossud.Controllers
 
                             Image thumbnail = bitmap.GetThumbnailImage(thumb_width, thumb_height, null, IntPtr.Zero);
                             thumbnail.Save(string.Format(EnumConst.AbsoluteFileName, thumbnail_path, file_name));
+                            thumbnail.Dispose();
+                            bitmap.Dispose();
                         }
 
                         file.SaveAs(absolute_file_name);
@@ -202,6 +204,7 @@ namespace Acrossud.Controllers
             catch (Exception ex)
             {
                 isSavedSuccessfully = false;
+                return Json(new { Message = ex.Message + " - Stacktrace: " + ex.InnerException + ex.StackTrace });
             }
 
             if (isSavedSuccessfully)
@@ -210,7 +213,7 @@ namespace Acrossud.Controllers
             }
             else
             {
-                return Json(new { Message = "Error al guardar el archivo." });
+                return Json(new { Message = "Hubo un error al guardar el archivo" });
             }
         }
 

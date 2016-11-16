@@ -1,0 +1,9 @@
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\DataAccess.dll.config
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\DataAccess.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\DataAccess.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\Object.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\bin\Release\Object.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\obj\Release\DataAccess.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\DataAccess\obj\Release\DataAccess.pdb

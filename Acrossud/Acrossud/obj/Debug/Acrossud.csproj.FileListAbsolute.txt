@@ -67,9 +67,6 @@ C:\Users\Lucía\Documents\Visual Studio 2015\Projects\Acrossud\Acrossud\bin\Micr
 C:\Users\Lucía\Documents\Visual Studio 2015\Projects\Acrossud\Acrossud\obj\Debug\Acrossud.csprojResolveAssemblyReference.cache
 C:\Users\Lucía\Documents\Visual Studio 2015\Projects\Acrossud\Acrossud\obj\Debug\Acrossud.dll
 C:\Users\Lucía\Documents\Visual Studio 2015\Projects\Acrossud\Acrossud\obj\Debug\Acrossud.pdb
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.csprojResolveAssemblyReference.cache
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.dll
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\roslyn\csc.exe
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -86,6 +83,7 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Acrossud.dll.confi
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Acrossud.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Acrossud.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Antlr3.Runtime.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\DataAccess.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\EntityFramework.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\EntityFramework.SqlServer.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.AspNet.Identity.Core.dll
@@ -113,12 +111,15 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.Razor.d
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPages.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPages.Razor.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\WebGrease.dll
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\DataAccess.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\BouncyCastle.Crypto.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\DataAccess.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\ObjectMger.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Object.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Newtonsoft.Json.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.Helpers.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.Mvc.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.Optimization.xml
@@ -127,7 +128,6 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPage
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\System.Web.WebPages.Razor.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Antlr3.Runtime.pdb
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Newtonsoft.Json.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\EntityFramework.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\EntityFramework.SqlServer.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.AspNet.Identity.Core.xml
@@ -142,8 +142,8 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.Owin.Sec
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\DataAccess.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.csprojResolveAssemblyReference.cache
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.Migrations.initial.resources
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.csproj.GenerateResource.Cache
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.dll
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\bin\Utilities.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Acrossud\obj\Debug\Acrossud.pdb

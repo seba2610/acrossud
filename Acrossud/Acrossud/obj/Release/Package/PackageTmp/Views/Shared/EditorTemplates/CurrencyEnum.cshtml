@@ -1,0 +1,11 @@
+﻿@model Acrossud.Models.CurrencyEnumModels
+@using System.Web.Mvc
+@{
+    var names = Enum.GetNames(typeof(EnumConst.CurrencyEnum));
+    var values = Enum.GetValues(typeof(EnumConst.CurrencyEnum)).Cast<EnumConst.CurrencyEnum>();
+
+    var items = names.Zip(values, (name, value) =>
+        new SelectListItem { Text = name, Value = value.ToString() });
+}
+
+@Html.DropDownListFor(x=> x.Selected, Model.Items)

@@ -199,6 +199,7 @@
     <Content Include="Content\default-skin\default-skin.svg" />
     <Content Include="Content\default-skin\preloader.gif" />
     <Content Include="Content\dropzone.css" />
+    <Content Include="Content\fonts\slick.svg" />
     <Content Include="Content\photoswipe.css" />
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
@@ -206,9 +207,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\about-back.png" />
+    <Content Include="images\email_icon.png" />
+    <Content Include="images\facebook_icon.png" />
+    <Content Include="images\jumbo-back.jpeg" />
+    <Content Include="images\logo-sc.png" />
+    <Content Include="images\main-logo.svg" />
+    <Content Include="images\no_image.png" />
+    <Content Include="images\whatsapp_icon.png" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Ayuda.pdf" />
+    <Content Include="Content\fonts\slick.eot" />
+    <Content Include="Content\fonts\slick.ttf" />
+    <Content Include="Content\fonts\slick.woff" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\dropzone.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -303,6 +317,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201610111926282_initial.resx">
       <DependentUpon>201610111926282_initial.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

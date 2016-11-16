@@ -23,9 +23,8 @@ namespace Acrossud.Controllers
             List<Property> result = properties.Where(p =>
                                         p.Name != EnumConst.PropertyNameFeatured &&
                                         p.Name != EnumConst.PropertyNameActive &&
-                                        p.Name != EnumConst.PropertyNamePrice &&
                                         p.Name != EnumConst.PropertyNameMainPicture)
-                                    .ToList().OrderBy(p => p.Name).ToList();
+                                    .ToList().OrderBy(p => p.Order).ToList();
 
             Property price_property = properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePrice);
 
@@ -33,8 +32,6 @@ namespace Acrossud.Controllers
             {
                 price_property.Value = Views.Helpers.Helpers.GetEntityPrice(price_property, properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrency));
             }
-
-            result.Insert(0, price_property);
 
             return result;
         }
@@ -92,6 +89,7 @@ namespace Acrossud.Controllers
                         Bitmap image = (Bitmap)Image.FromFile(document);
                         width = image.Width;
                         height = image.Height;
+                        image.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -127,7 +125,7 @@ namespace Acrossud.Controllers
 
         public ActionResult Contact()
         {
-            return Redirect("~/#contacto");
+            return View();
         }
     }
 }

@@ -35,7 +35,13 @@ namespace Acrossud.Models
 
             if (String.IsNullOrEmpty(Value))
             {
-                return (null);
+                return new Property
+                {
+                    Value = String.Empty,
+                    Id = Id,
+                    Name = Name,
+                    Description = Description
+                };
             };
 
             int Int;

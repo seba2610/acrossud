@@ -3,4 +3,3 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Debug\Object.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Debug\Object.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Debug\Object.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Debug\Object.pdb
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Debug\Object.csprojResolveAssemblyReference.cache

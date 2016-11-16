@@ -1,0 +1,40 @@
+﻿@model Acrossud.Models.EntityCollectionModel
+@using Acrossud.Views.Helpers
+
+@{
+    if (Model.Entities.Count() == 0)
+    {
+        <h2 class="no-entities">No se encuentran propiedades</h2>
+    }
+    else
+    {
+        foreach (Entity entity in Model.Entities)
+        {
+            string main_document_src = String.Empty;
+            if (entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture) != null)
+            {
+                main_document_src = @Url.Content(string.Format(EnumConst.EntityImagesPath + "/{2}", String.Empty, entity.Id, entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameMainPicture).Value));
+            }
+            else
+            {
+                main_document_src = @Url.Content(string.Format(EnumConst.NoImageFile, String.Empty));
+            }
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="index-entity-wrapper" style="background-image:url('@Html.Raw(main_document_src)')">
+                    <a href="@Url.Action("ShowEntity", new { entity_id = entity.Id })">
+                        <div class="titles-background">
+                            <div class="titles">
+                                <h2>@entity.Name</h2>
+                                <h3>
+                                    <strong>@Helpers.GetEntityPrice(entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePrice), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrency), entity.Properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameRentSale))</strong>
+                                </h3>
+                                <h5>@entity.Description</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+}        
+

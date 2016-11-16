@@ -2,4 +2,3 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Debug\Utilities.d
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Debug\Utilities.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Debug\Utilities.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Debug\Utilities.pdb
-C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Debug\Utilities.csprojResolveAssemblyReference.cache

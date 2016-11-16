@@ -1,0 +1,5 @@
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Release\Object.dll.config
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Release\Object.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Release\Object.pdb
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Release\Object.dll
+C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Release\Object.pdb
