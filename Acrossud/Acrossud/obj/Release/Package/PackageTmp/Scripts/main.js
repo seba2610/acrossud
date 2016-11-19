@@ -261,10 +261,6 @@
                     item.src = item.o.src;
                     item.w = item.o.w;
                     item.h = item.o.h;
-                } else {
-                    item.src = item.m.src;
-                    item.w = item.m.w;
-                    item.h = item.m.h;
                 }
             });
 
@@ -349,7 +345,9 @@ $(document).ready(function () {
                 }
             },
             dictCancelUpload: "Cancelar",
-            renameFilename: false
+            renameFilename: false,
+            acceptedFiles: ".png,.jpeg,.gif,.jpg,.bmp",
+            dictInvalidFileType: "Este archivo no se agregará ya que no es imagen válida."
             }
         };
 
@@ -390,10 +388,10 @@ $(document).ready(function () {
     //Control bootbox para mostrar aviso
     $.urlParam = function (name) {
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results[1] !== undefined)
+        if (results !== null && 1 in results && results[1] !== undefined)
             return results[1];
         else
-            return 0;
+            return null;
     }
 
     if ($.urlParam('alert') !== null) {
@@ -407,4 +405,24 @@ $(document).ready(function () {
             }, 3000);
         });
     }
+
+    // jQuery plugin to prevent double submission of forms
+    jQuery.fn.preventDoubleSubmission = function () {
+        $(this).on('submit', function (e) {
+            var $form = $(this);
+
+            if ($form.data('submitted') === true) {
+                // Previously submitted - don't submit again
+                e.preventDefault();
+            } else {
+                // Mark it so that the next submit can be ignored
+                $form.data('submitted', true);
+            }
+        });
+
+        // Keep chainability
+        return this;
+    };
+
+    $('form:not(.js-allow-double-submission)').preventDoubleSubmission();
 });

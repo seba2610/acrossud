@@ -4,7 +4,7 @@
         <h2>@ViewBag.EntityName</h2>
         <h3>Imágenes</h3>
         <div class="row">
-            @using (Html.BeginForm("AddEntityDocument", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("AddEntityDocument", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone js-allow-double-submission", role = "form", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entity_id", (int)ViewBag.EntityId)
                 <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>

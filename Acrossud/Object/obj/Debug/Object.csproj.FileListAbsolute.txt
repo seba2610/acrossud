@@ -3,3 +3,8 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Debug\Object.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\bin\Debug\Object.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Debug\Object.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Object\obj\Debug\Object.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Object\bin\Debug\Object.dll.config
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Object\bin\Debug\Object.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Object\bin\Debug\Object.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Object\obj\Debug\Object.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Object\obj\Debug\Object.pdb

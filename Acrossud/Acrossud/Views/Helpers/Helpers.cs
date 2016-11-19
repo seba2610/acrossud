@@ -16,9 +16,15 @@ namespace Acrossud.Views.Helpers
                 currency != null && !String.IsNullOrEmpty(currency.Value.ToString()))
             {
                 if ((EnumConst.CurrencyEnum)currency.Value == EnumConst.CurrencyEnum.Dólares)
+                    if ((int)price.Value == 0)
+                        return string.Format("USD 0");
+                else
                     return string.Format("USD {0}", String.Format("{0:0,0}", ((int)price.Value)));
                 else
-                    return string.Format("$ {0}", String.Format("{0:0,0}", ((int)price.Value)));
+                    if ((int)price.Value == 0)
+                        return string.Format("$ 0");
+                    else
+                        return string.Format("$ {0}", String.Format("{0:0,0}", ((int)price.Value)));
             }
 
             return String.Empty;
@@ -31,9 +37,15 @@ namespace Acrossud.Views.Helpers
                 rent_sale != null && !String.IsNullOrEmpty(rent_sale.Value.ToString()))
             {
                 if ((EnumConst.CurrencyEnum)currency.Value == EnumConst.CurrencyEnum.Dólares)
-                    return string.Format("USD {0} - {1}", String.Format("{0:0,0}", ((int)price.Value)), rent_sale.Value.ToString());
+                    if ((int)price.Value == 0)
+                        return string.Format("USD 0 - {0}", rent_sale.Value.ToString());
+                    else
+                        return string.Format("USD {0} - {1}", String.Format("{0:0,0}", ((int)price.Value)), rent_sale.Value.ToString());
                 else
-                    return string.Format("$ {0} - {1}", String.Format("{0:0,0}", ((int)price.Value)), rent_sale.Value.ToString());
+                    if ((int)price.Value == 0)
+                        return string.Format("$ 0 - {0}", rent_sale.Value.ToString());
+                    else
+                        return string.Format("$ {0} - {1}", String.Format("{0:0,0}", ((int)price.Value)), rent_sale.Value.ToString());
             }
 
             return String.Empty;

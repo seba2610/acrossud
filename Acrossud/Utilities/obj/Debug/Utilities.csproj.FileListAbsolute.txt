@@ -2,3 +2,7 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Debug\Utilities.d
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Debug\Utilities.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Debug\Utilities.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Debug\Utilities.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\bin\Debug\Utilities.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\bin\Debug\Utilities.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\obj\Debug\Utilities.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\obj\Debug\Utilities.pdb

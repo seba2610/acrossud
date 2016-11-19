@@ -2,3 +2,8 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Release\Utilities
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\bin\Release\Utilities.pdb
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Release\Utilities.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\Utilities\obj\Release\Utilities.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\bin\Release\Utilities.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\bin\Release\Utilities.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\obj\Release\Utilities.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\obj\Release\Utilities.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\Utilities\obj\Release\Utilities.pdb

@@ -42,7 +42,11 @@ namespace Acrossud
 
         public const string PropertyNamePrice = "Precio";
 
+        public const string PropertyNamePriceGc = "Gastos comunes";
+
         public const string PropertyNameCurrency = "Tipo de moneda";
+
+        public const string PropertyNameCurrencyGc = "Tipo de moneda (Gastos comunes)";
 
         public const string PropertyNameFeatured = "Destacada";
 

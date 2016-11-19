@@ -31,7 +31,7 @@
         <div class="row">
             <div id="entity_document_url" style="display:none;">@Url.Action("GetEntityDocumentsFiles", "Entities", new { @entity_id = Model.Id })</div>
             <div id="delete_document_url" style="display:none;">@Url.Action("DeleteEntityDocumentFile", "Entities", new { @entity_id = Model.Id })</div>
-            @using (Html.BeginForm("AddEntityDocument", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone", role = "form", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("AddEntityDocument", "Entities", FormMethod.Post, new { @id = "maindropzone", @class = "form-horizontal dropzone js-allow-double-submission", role = "form", enctype = "multipart/form-data" }))
             {
                 @Html.Hidden("entity_id", @Model)
                 <div class="dz-message" data-dz-message><span>Arrastre las imágenes aquí o haga click.</span></div>

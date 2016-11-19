@@ -8,3 +8,13 @@ C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\bin\Release\Object.p
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.csprojResolveAssemblyReference.cache
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.dll
 C:\Users\Lucía\Documents\Seba\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\ObjectMger.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\ObjectMger.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\DataAccess.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\Object.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\DataAccess.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\bin\Release\Object.pdb
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.csprojResolveAssemblyReference.cache
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.dll
+C:\Users\Sebastian Caggiano\Documents\GitHub\acrossud\Acrossud\ObjectMger\obj\Release\ObjectMger.pdb

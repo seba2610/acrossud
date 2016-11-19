@@ -27,10 +27,16 @@ namespace Acrossud.Controllers
                                     .ToList().OrderBy(p => p.Order).ToList();
 
             Property price_property = properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePrice);
+            Property price_property_gc = properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNamePriceGc);
 
             if (price_property != null)
             {
                 price_property.Value = Views.Helpers.Helpers.GetEntityPrice(price_property, properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrency));
+            }
+
+            if (price_property_gc != null)
+            {
+                price_property_gc.Value = Views.Helpers.Helpers.GetEntityPrice(price_property_gc, properties.FirstOrDefault(p => p.Name == EnumConst.PropertyNameCurrencyGc));
             }
 
             return result;
